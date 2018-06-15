@@ -37,7 +37,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/divider_horizontal_bright"
+        android:src="@drawable/weather1"
         tools:layout_editor_absoluteX="176dp"
         tools:layout_editor_absoluteY="462dp" />
 </android.support.constraint.ConstraintLayout>

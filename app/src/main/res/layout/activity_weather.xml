@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeatherActivity">
+    tools:context=".WeatherActivity"
+    android:background="@drawable/misty">
 
     <TextView
         android:id="@+id/temperatureTextView"
@@ -35,9 +36,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/weather1"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="462dp" />
+        android:layout_width="118dp"
+        android:layout_height="88dp"
+        android:src="@drawable/cloudy"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="418dp" />
 </android.support.constraint.ConstraintLayout>

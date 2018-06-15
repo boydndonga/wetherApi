@@ -2,7 +2,7 @@ package com.example.ndonga.weatherapi.services;
 
 import android.os.AsyncTask;
 
-public class YahooWeatherService {
+public class WeatherService {
     private WeatherServiceCallback callback;
     private String location;
 

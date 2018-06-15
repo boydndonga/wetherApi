@@ -6,38 +6,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class Wind {
 
-    @SerializedName("chill")
-    @Expose
-    private String chill;
-    @SerializedName("direction")
-    @Expose
-    private String direction;
     @SerializedName("speed")
     @Expose
-    private String speed;
+    private Double speed;
+    @SerializedName("deg")
+    @Expose
+    private Integer deg;
 
-    public String getChill() {
-        return chill;
-    }
-
-    public void setChill(String chill) {
-        this.chill = chill;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
-    public String getSpeed() {
+    public Double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(String speed) {
+    public void setSpeed(Double speed) {
         this.speed = speed;
+    }
+
+    public Integer getDeg() {
+        return deg;
+    }
+
+    public void setDeg(Integer deg) {
+        this.deg = deg;
     }
 
 }

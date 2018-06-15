@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="250dp" />
 
     <TextView
-        android:id="@+id/textViewUserEmail"
+        android:id="@+id/ "
         android:layout_width="223dp"
         android:layout_height="42dp"
         android:text="@string/email"

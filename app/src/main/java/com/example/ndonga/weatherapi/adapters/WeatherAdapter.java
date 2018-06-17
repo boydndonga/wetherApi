@@ -25,18 +25,20 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
         mLocationWeather = locationWeather;
     }
 
-
     @Override
-    public WeatherAdapter.WeatherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.weather_list_item, parent, false);
+    public WeatherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.weather_list_item, parent, false);
         WeatherViewHolder viewHolder = new WeatherViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(WeatherAdapter.WeatherViewHolder holder, int position) {
+    public void onBindViewHolder(WeatherViewHolder holder, int position) {
         holder.bindWeather(mLocationWeather.get(position));
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -59,10 +61,10 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
             mContext = itemView.getContext();
         }
 
-        public void bindRestaurant(Restaurant restaurant) {
-            mNameTextView.setText(restaurant.getName());
-            mCategoryTextView.setText(restaurant.getCategories().get(0));
-            mRatingTextView.setText("Rating: " + restaurant.getRating() + "/5");
+        public void bindWeather(Weather locationWeather) {
+            mTemperatureTextView.setText(locationWeather.getName());
+            mConditionTextView.setText(locationWeather.getId());
+            mLocationTextView.setText(locationWeather.getWeather().get(0));
         }
     }
 }

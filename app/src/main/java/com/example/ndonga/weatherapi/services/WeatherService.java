@@ -4,6 +4,9 @@ import android.os.AsyncTask;
 
 import com.example.ndonga.weatherapi.Constants;
 import com.example.ndonga.weatherapi.models.Weather;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,7 +43,7 @@ public class WeatherService {
     }
 
     public List<Weather> processResults(Response response) {
-        List<Weather> restaurants = new ArrayList<>();
+        List<Weather> locationWeather = new ArrayList<>();
 
         try {
             String jsonData = response.body().string();
@@ -52,13 +55,12 @@ public class WeatherService {
 
                 Type collectionType = new TypeToken<List<Weather>>() {}.getType();
                 Gson gson = new GsonBuilder().create();
-                restaurants = gson.fromJson(locationJSON.toString(), collectionType);
+                locationWeather = gson.fromJson(locationJSON.toString(), collectionType);
             }
         } catch (JSONException | NullPointerException | IOException e) {
             e.printStackTrace();
         }
 
-        return restaurants;
-
+        return locationWeather;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ndonga.weatherapi.services;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.ndonga.weatherapi.Constants;
 import com.example.ndonga.weatherapi.models.Weather;
@@ -26,6 +27,7 @@ import okhttp3.Response;
 
 public class WeatherService {
     private static OkHttpClient client = new OkHttpClient();
+    public static final String TAG = WeatherService.class.getSimpleName();
 
     public static void findWeather(String location, Callback callback) {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.WEATHER_BASE_URL).newBuilder();
@@ -34,10 +36,10 @@ public class WeatherService {
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
-//                .header("Authorization", "Bearer " + Constants.YELP_ACCESS_TOKEN)
                 .url(url)
                 .build();
 
+//        Log.d(TAG, "my debug point", request);
         Call call = client.newCall(request);
         call.enqueue(callback);
     }

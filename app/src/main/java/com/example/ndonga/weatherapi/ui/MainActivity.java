@@ -1,9 +1,11 @@
-package com.example.ndonga.weatherapi;
+package com.example.ndonga.weatherapi.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.ndonga.weatherapi.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        @ButterKnife.bind(this);
+        ButterKnife.bind(this);
     }
 }

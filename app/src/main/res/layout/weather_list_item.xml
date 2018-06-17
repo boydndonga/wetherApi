@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteY="175dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/iconsImageView"
         android:layout_width="96dp"
         android:layout_height="115dp"
         app:srcCompat="@drawable/weather1"

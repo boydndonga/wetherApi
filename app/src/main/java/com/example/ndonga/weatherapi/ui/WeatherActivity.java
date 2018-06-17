@@ -1,5 +1,6 @@
 package com.example.ndonga.weatherapi.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,6 +33,9 @@ public class WeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
         ButterKnife.bind(this);
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
+        getWeather(location);
     }
 
     private void getWeather(String location) {
@@ -43,16 +47,19 @@ public class WeatherActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, Response response) {
                 mLocationWeather = weatherService.processResults(response);
-                Weather.this.runOnUiThread(() -> {
-                    mAdapter = new WeatherAdapter(getApplicationContext(), mLocationWeather);
+                WeatherActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter = new WeatherAdapter(getApplicationContext(), mLocationWeather);
 
-                    mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager
-                            = new LinearLayoutManager(WeatherActivity.this);
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setHasFixedSize(true);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager
+                                = new LinearLayoutManager(WeatherActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+                    }
                 });
             }
         });
